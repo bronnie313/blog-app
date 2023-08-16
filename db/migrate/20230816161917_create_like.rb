@@ -8,6 +8,6 @@ class CreateLike < ActiveRecord::Migration[7.0]
     end
 
     add_foreign_key :likes, :users, column: :user_id
-    add_foreign_key :likes, :posts, column: :post_id 
+    add_foreign_key :likes, :posts, column: :post_id
   end
 end

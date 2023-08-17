@@ -137,7 +137,7 @@ Example command:
 
 ### Usage
 
-To run the project, execute the following command:` ruby filename.rb `
+To run the project, execute the following command:` rails server `
 
 <!--
 Example command:
@@ -149,7 +149,7 @@ Example command:
 
 ### Run tests
 
-To run tests, run the following command: ` gem install rspec ` ` rspec filename.rb `
+To run tests, run the following command: ` bin/rails test test/models/article_test.rb `
 
 <!--
 Example command:

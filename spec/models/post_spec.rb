@@ -48,7 +48,7 @@ RSpec.describe Post, type: :model do
 
   it 'should return recent comments' do
     post = user.posts.create(title: 'Test Post')
-    comment1 = post.comments.create(author: user, text: 'Comment 1')
+    post.comments.create(author: user, text: 'Comment 1')
     comment2 = post.comments.create(author: user, text: 'Comment 2')
     comment3 = post.comments.create(author: user, text: 'Comment 3')
 

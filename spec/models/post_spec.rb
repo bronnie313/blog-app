@@ -45,4 +45,15 @@ RSpec.describe Post, type: :model do
     post.comments_counter = 'invalid'
     expect(post).to_not be_valid
   end
+
+  it 'should return recent comments' do
+    post = user.posts.create(title: 'Test Post')
+    comment1 = post.comments.create(author: user, text: 'Comment 1')
+    comment2 = post.comments.create(author: user, text: 'Comment 2')
+    comment3 = post.comments.create(author: user, text: 'Comment 3')
+
+    recent_comments = post.recent_comments(2)
+
+    expect(recent_comments).to eq([comment3, comment2])
+  end
 end

@@ -20,7 +20,7 @@ RSpec.describe Post, type: :model do
 
   it 'should update the user post counter correctly' do
     post1 = user.posts.create(title: 'Test Post 1')
-    post2 = user.posts.create(title: 'Test Post 2')
+    user.posts.create(title: 'Test Post 2')
 
     post1.update_user_post_counter
 

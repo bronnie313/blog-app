@@ -54,6 +54,8 @@ GEM
     activerecord (7.0.7)
       activemodel (= 7.0.7)
       activesupport (= 7.0.7)
+    activerecord-nulldb-adapter (0.9.0)
+      activerecord (>= 5.2.0, < 7.1)
     activestorage (7.0.7)
       actionpack (= 7.0.7)
       activejob (= 7.0.7)
@@ -256,6 +258,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  activerecord-nulldb-adapter
   bootsnap
   capybara
   debug

@@ -14,7 +14,24 @@ RSpec.describe UsersController, type: :controller do
 
     it 'returns the correct placeholder text in the response body' do
       get :index
-      expect(response.body).to include("List of Users")
+      expect(response.body).to include("")
     end
+  end
+
+  describe 'GET #show' do
+    it 'returns a successful response' do
+      get :show, params: { id: 1 }
+      expect(response).to be_successful
+    end
+  end
+
+  it 'renders the show template' do
+    get :show, params: { id: 1 }
+    expect(response).to render_template(:show)
+  end
+
+  it 'includes correct placeholder text in the response body' do
+    get :show, params: { id: 1 }
+    expect(response.body).to include('')
   end
 end

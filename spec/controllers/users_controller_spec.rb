@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
 
     it 'returns the correct placeholder text in the response body' do
       get :index
-      expect(response.body).to include("")
+      expect(response.body).to include('')
     end
   end
 

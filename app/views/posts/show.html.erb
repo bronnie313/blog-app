@@ -1,1 +1,25 @@
-<h1>Single Post</h1>
+<nav class="fluid-container navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">
+        <h1 class="m-2">Single Post</h1>
+    </div>
+</nav>
+<div class="container">
+        <div class="p-2 mt-1 border border-dark">
+            <div class="d-flex justify-content-between ">
+                <p>Post #<%= @post.id %> by <%= @user.name %></p>
+                <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
+            </div>
+            <p><%= @post.title %></p>
+        </div>
+    <% if @comments.any? %>
+        <div class="comments p-2 mt-1 border border-dark">
+            <% @comments.each do |comment| %>
+                <h6 class="comment-line"><%= comment.author.name %>: <%= comment.text %><h6>
+            <% end %>
+        </div>
+    <% else %>
+        <div class="comments mt-1 fw-light fs-6">
+            No comments yet
+        </div>
+    <% end %>
+</div>

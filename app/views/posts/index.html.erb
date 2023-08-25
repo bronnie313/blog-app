@@ -19,21 +19,28 @@
     </div>
     <ul class="posts">
       <% @user.posts.each_with_index do |post, index| %>
-        <li class="d-flex flex-column p-2 mt-3 border border-dark">
-            <h6>Post#<%= index + 1 %></h6>
-            <%= post.title %>
-            <div class="num-comments-likes">
-                <p>Number of Comments: <%= post.comments.count %>, 
-                Number of Likes: <%= post.likes.count %></p>
+        <a href="<%= user_post_path(user_id: @user.id, id: post.id) %>" class="post-view">
+            <li class="d-flex flex-column p-2 mt-3 border border-dark">
+                <h6>Post#<%= index + 1 %></h6>
+                <%= post.title %>
+                <div class="num-comments-likes">
+                    <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+                </div>
+            </li>
+        </a>
+        <% if post. comments.any? %>
+            <div class="comments p-2 mt-1 border border-dark">
+                    <% post.comments.each_with_index do |comment, comment_index| %>
+                        <h6><%= comment.author.name %>: <%= comment.text %></h6>
+                    <% end %>
             </div>
-        </li>
+        <% else %>
+            <div class="comments mt-1 fw-light fs-6">
+                No comments yet
+            </div>
+        <% end %>
       <% end %>
     </ul>
-    <div class="comments p-2 mt-3 border border-dark">
-        <% @post.each_with_index do |comment, comment_index| %>
-            <h6><%= comment.author.name %>: <%= comment.text %></h6>
-        <% end %>
-    </div>
     <div class="see-btn">
         <button class="btn btn-outline-dark m-3 btn-sm">pagination</button>
     </div>

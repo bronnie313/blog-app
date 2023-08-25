@@ -23,8 +23,7 @@
             <h6>Post#<%= index + 1 %></h6>
             <%= post.title %>
             <div class="num-comments-likes">
-                <p>Number of Comments: <%= post.comments.count %>, 
-                Number of Likes: <%= post.likes.count %></p>
+                <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
             </div>
         </li>
       <% end %>

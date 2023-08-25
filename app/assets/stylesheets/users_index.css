@@ -1,0 +1,23 @@
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul li {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 1rem;
+}
+
+.user-pic {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.user-name {
+  border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}

@@ -1,14 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="fluid-container navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand">
         <h1 class="m-2">List of Users</h1>
     </div>
 </nav>
-<ul>
+<ul class="fluid-container">
     <% @users.each do |user| %>
-        <li>
-            <img src="<%= user.photo %>" alt="<%= user.name %> Profile Photo">
-            <h2><%= user.name %></h2>
-            <p><%= user.bio %></p>
+        <li class="p-2">
+            <div class="user-pic">
+                <img src="<%= user.photo %>" alt="<%= user.name %> DP">
+            </div>
+            <div class="user-name">
+                <h2><%= user.name %></h2>
+            <p>number of posts x</p>
+            </div>
         </li>
     <% end %>
 </ul>

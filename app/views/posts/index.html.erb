@@ -28,9 +28,9 @@
                 </div>
             </li>
         </a>
-        <% if post. comments.any? %>
+        <% if post.recent_comments.any? %>
             <div class="comments p-2 mt-1 border border-dark">
-                    <% post.comments.each_with_index do |comment, comment_index| %>
+                    <% post.recent_comments.each_with_index do |comment, comment_index| %>
                         <h6><%= comment.author.name %>: <%= comment.text %></h6>
                     <% end %>
             </div>

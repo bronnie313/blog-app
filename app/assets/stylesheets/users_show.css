@@ -1,19 +1,19 @@
 .user-details {
-    display: grid;
-    grid-template-columns: 0.5fr 1.5fr;
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 1rem;
 }
 
 .posts {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .see-btn {
-    text-align: center;
+  text-align: center;
 }
 
 .num-comments-likes {
-    text-align: end;
-    font-size: small;
+  text-align: end;
+  font-size: small;
 }

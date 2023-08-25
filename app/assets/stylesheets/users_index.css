@@ -14,10 +14,7 @@ ul li {
   padding: 20px;
 }
 
-.user-name {
-  border: 1px solid black;
-  padding: 20px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+.num-posts {
+  margin: 0;
+  text-align: end;
 }

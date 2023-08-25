@@ -9,9 +9,11 @@
             <div class="user-pic">
                 <img src="<%= user.photo %>" alt="<%= user.name %> DP">
             </div>
-            <div class="user-name">
-                <h2><%= user.name %></h2>
-            <p>number of posts x</p>
+            <div class="p-2 border border-dark">
+                <a href="<%= user_path(user) %>">
+                    <h2><%= user.name %></h2>
+                </a>
+                <p class="num-posts">Number of posts: <%= user.posts.count %></p>
             </div>
         </li>
     <% end %>

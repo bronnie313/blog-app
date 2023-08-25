@@ -30,7 +30,7 @@
       <% end %>
     </ul>
     <div class="see-btn">
-        <button class="btn btn-outline-dark m-3 btn-sm">see all posts</button>
+      <a href="<%= user_posts_path(user_id: @user.id) %>" class="btn btn-outline-dark m-3 btn-sm">see all posts</a>
     </div>
 </div>
   

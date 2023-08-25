@@ -1,1 +1,14 @@
-<h1>List of Users</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">
+        <h1 class="m-2">List of Users</h1>
+    </div>
+</nav>
+<ul>
+    <% @users.each do |user| %>
+        <li>
+            <img src="<%= user.photo %>" alt="<%= user.name %> Profile Photo">
+            <h2><%= user.name %></h2>
+            <p><%= user.bio %></p>
+        </li>
+    <% end %>
+</ul>

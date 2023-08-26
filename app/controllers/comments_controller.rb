@@ -1,18 +1,35 @@
 class CommentsController < ApplicationController
+
+    def add_comment
+        @user = User.find(params[:user_id])
+        @post = Post.find(params[:post_id])
+        @comment = Comment.new
+        render partial: 'forms/comment', locals: { user: @user, post: @post, comment: @comment }
+    end
+
     def new
-        @post = Post.fine(params[:post_id])
         @comment = Comment.new
     end
 
     def create
+        @user = current_user  
         @post = Post.find(params[:post_id])
-        @comment = @post.comments.new(params.require(:comment).permit(:text))
-        @comment.user = current_user
-
+        @comment = @post.comments.build(comment_params)
+        @comment.author = @user
+    
         if @comment.save
-            redirect_to posts_path(@post)
+          redirect_to user_post_path(@post.author, @post), notice: 'Comment was successfully added.'
+
         else
-            render :new
+          render partial: 'forms/comment', locals: { user: @user, post: @post, comment: @comment }
         end
     end
+
+    private
+  
+    def comment_params
+      params.require(:comment).permit(:text)
+    end             
 end
+
+  

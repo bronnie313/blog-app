@@ -10,6 +10,14 @@
                 <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
             </div>
             <p><%= @post.title %></p>
+            <div>
+                <%= form_with model: @post, url: like_post_path(@post) do |form| %>
+                <%= link_to 'Like', like_post_path(@post), method: :post %>
+
+                    <%= form.submit 'Like', class: 'btn btn-outline-dark btn-sm float-start' %>
+                <% end %>
+                <a href="<%= add_user_comment_path(user_id: @user.id, post_id: @post.id) %>" class="btn btn-outline-dark ms-2 btn-sm">comment</a>
+            </div>
         </div>
     <% if @comments.any? %>
         <div class="comments p-2 mt-1 border border-dark">

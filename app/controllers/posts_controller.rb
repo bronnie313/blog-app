@@ -9,19 +9,31 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
   end
+ 
+  def add_post
+    @user = User.find(params[:user_id])
+    @post = Post.new
+    render partial: 'forms/addpost', locals: { user: @user, post: @post }
+  end
 
   def new
     @post = Post.new
   end
 
   def create 
-    @post = Post.new(params.require(:post).permit(:title, :text))
-    @post.user = current_user
-    
+    @values = params[:post]
+    @post = Post.new(title: @values['title'], text: @values['text'], author: current_user)
+
     if @post.save
-      redirect_to posts_path
+      redirect_to user_path(current_user.id)
     else
       render :new
     end
+  end
+
+  def like
+    @post = Post.find(params[:id])
+    @post.likes.create(user: current_user)  
+    redirect_to user_post_path(@post.user, @post), notice: 'Post liked!'
   end
 end

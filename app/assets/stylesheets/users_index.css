@@ -1,0 +1,20 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 1rem;
+}
+
+.user-pic {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.num-posts {
+  margin: 0;
+  text-align: end;
+}

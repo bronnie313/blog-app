@@ -1,1 +1,35 @@
-<h1>User Profile</h1>
+<nav class="fluid-container navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">
+        <h1 class="m-2">User Profile</h1>
+    </div>
+</nav>
+<div class="container user-profile">
+    <div class="user-details pt-3">
+        <div class="user-pic">
+            <img src="<%= @user.photo %>" alt="<%= @user.name %> Profile">
+        </div>
+        <div class="p-2 border border-dark">
+            <h2><%= @user.name %></h2>
+            <p class="num-posts">Number of Posts: <%= @user.posts.count %></p>
+        </div>
+    </div>
+    <div class="bio p-1 mt-3 border border-dark">
+        <h5>Bio</h5>
+        <p><%= @user.bio %></p>
+    </div>
+    <ul class="posts">
+      <% @user.recent_posts.each_with_index do |post, index| %>
+        <li class="d-flex flex-column p-2 mt-3 border border-dark">
+            <h6>Post #<%= post.id %></h6>
+            <%= post.title %>
+            <div class="num-comments-likes">
+                <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+            </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="see-btn">
+      <a href="<%= user_posts_path(user_id: @user.id) %>" class="btn btn-outline-dark m-3 btn-sm">see all posts</a>
+    </div>
+</div>
+  

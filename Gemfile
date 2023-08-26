@@ -8,6 +8,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7'
 
+gem 'bootstrap', '~> 5.3.1'
+
 gem 'activerecord-nulldb-adapter'
 
 gem 'rails-controller-testing'

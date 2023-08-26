@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/users/:user_id/add_comment', to: 'comments#create'
   resources :posts do
     member do
-      post 'like'
+      post 'like',  to: 'likes#like'
     end
   end
 end

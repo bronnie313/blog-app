@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
   end
- 
+
   def add_post
     @user = User.find(params[:user_id])
     @post = Post.new
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create 
+  def create
     @values = params[:post]
     @post = Post.new(title: @values['title'], text: @values['text'], author: current_user)
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    @post.likes.create(user: current_user)  
-    redirect_to user_post_path(@post.user, @post), notice: 'Post liked!'
+    @post.likes.create(author: current_user)
+    redirect_to user_post_path(@post.author, @post), notice: 'Post liked!'
   end
 end

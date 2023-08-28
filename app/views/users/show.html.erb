@@ -10,6 +10,7 @@
         </div>
         <div class="p-2 border border-dark">
             <h2><%= @user.name %></h2>
+            <a href="<%= add_user_post_path(user_id: @user.id) %>" class="btn btn-outline-dark mt-2 btn-sm">Add Post</a>
             <p class="num-posts">Number of Posts: <%= @user.posts.count %></p>
         </div>
     </div>

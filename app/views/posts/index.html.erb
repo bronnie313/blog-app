@@ -22,9 +22,10 @@
         <a href="<%= user_post_path(user_id: @user.id, id: post.id) %>" class="post-view">
             <li class="d-flex flex-column p-2 mt-3 border border-dark">
                 <h6>Post#<%= index + 1 %></h6>
-                <%= post.title %>
+                <%= post.title %><br>
+                <%= post.text %>
                 <div class="num-comments-likes">
-                    <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+                    <p>Comments: <%= post.comments.size %>, Likes: <%= post.likes.size %></p>
                 </div>
             </li>
         </a>

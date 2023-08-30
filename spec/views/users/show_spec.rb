@@ -9,8 +9,8 @@ RSpec.describe 'users/show.html.erb', type: :view do
   end
 
   scenario 'displays the user profile picture' do
-   render
-   expect(rendered).to have_css('img[src*="https://unsplash.com/photos/F_-0BxGuVvo"]')
+    render
+    expect(rendered).to have_css('img[src*="https://unsplash.com/photos/F_-0BxGuVvo"]')
   end
 
   scenario 'display the users username' do
@@ -37,6 +37,6 @@ RSpec.describe 'users/show.html.erb', type: :view do
 
   scenario 'displays a button to view all of a user\'s posts' do
     render
-    expect(rendered).to have_link('see all posts',  href: user_posts_path(@user))
+    expect(rendered).to have_link('see all posts', href: user_posts_path(@user))
   end
 end

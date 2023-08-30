@@ -6,8 +6,8 @@ RSpec.describe 'posts/index.html.erb', type: :view do
         @post1 = @user.posts.create(title: 'Post 1', text: 'Hello from Tom')
         @post2 = @user.posts.create(title: 'Post 2', text: 'Greetings from Lilly')
         @post3 = @user.posts.create(title: 'Post 3', text: 'Hi George')
-        @post1.comments.create(text: "Comment 1")
-        @post1.comments.create(text: "Comment 2")
+        @comment1 = Comment.create(post: @post1, author: @user, text: 'Comment 1')
+        @comment2 = Comment.create(post: @post1, author: @user, text: 'Comment 2')
         @post1.likes.create
         @post1.likes.create
     end
@@ -31,11 +31,16 @@ RSpec.describe 'posts/index.html.erb', type: :view do
         render
         expect(rendered).to have_content(@post1.title)
       end
-    
-    #   scenario "displays the first comments on a post" do
-    #     render
-    #     expect(rendered).to have_content(@post1.comments.first.text)
-    #   end
+
+    scenario 'displays the post body' do
+      render
+      expect(rendered).to have_content(@post1.text)
+    end
+
+      scenario "displays the first comment on a post" do
+        render
+        expect(rendered).to have_content(@post1.comments.first.text)
+      end
 
       scenario "displays how many comments a post has" do
         
@@ -48,4 +53,15 @@ RSpec.describe 'posts/index.html.erb', type: :view do
         render
         expect(rendered).to have_content(@post1.likes.count)
       end
+
+    scenario "displays pagination when there are more posts than fit on the view" do
+        render
+        expect(rendered).to have_selector('.see-btn')
+    end
+
+    scenario "redirects to post show page when clicking on a post" do
+        render
+        post_link = user_post_path(user_id: @user.id, id: @post1.id)
+        expect(rendered).to have_link(href: post_link)
+    end
 end 

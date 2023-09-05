@@ -10,6 +10,8 @@ gem 'rails', '~> 7.0.7'
 
 gem 'bootstrap', '~> 5.3.1'
 
+gem 'devise'
+
 gem 'activerecord-nulldb-adapter'
 
 gem 'rails-controller-testing'

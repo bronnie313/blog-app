@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: redirect ('/users')
+  devise_for :users
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+  end
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:user_id/posts', to: 'posts#index', as: 'user_posts'

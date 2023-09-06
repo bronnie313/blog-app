@@ -1,16 +1,19 @@
+<div class="container d-flex flex-column justify-content-center align-items-center w-50 mt-4">
 <h2>Resend confirmation instructions</h2>
-
+<div class="'d-flex flex-column w-100">
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'w-100' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+    <%= f.submit "Resend confirmation instructions", class: 'w-100' %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+</div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'users#index'
   end
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'

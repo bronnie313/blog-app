@@ -2,6 +2,7 @@
     <div class="navbar-brand">
         <h1 class="m-2">List of Users</h1>
     </div>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete %>
 </nav>
 <ul class="fluid-container">
     <% @users.each do |user| %>

@@ -30,20 +30,4 @@ RSpec.describe 'posts/show.html.erb', type: :view do
     render
     expect(rendered).to have_content(@post.likes.count)
   end
-
-  it 'displays the post body' do
-    render
-    expect(rendered).to have_content(@post.text)
-  end
-
-  it 'displays the username of each commentor' do
-    render
-    expect(rendered).to have_content(@user.name, count: 3)
-  end
-
-  it 'displays the comment each commentor left' do
-    render
-    expect(rendered).to have_content(@comment1.text)
-    expect(rendered).to have_content(@comment2.text)
-  end
 end

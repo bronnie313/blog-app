@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
+  def admin?
+    role == 'admin'
+  end
+
   def recent_posts
     posts.order(created_at: :desc).limit(3)
   end

@@ -66,7 +66,7 @@ Blog-app is a classic blog website that shows a list of posts and empowers reade
 <details>
 <summary>ruby on Rails</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">Ruby on Rails</a></li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 

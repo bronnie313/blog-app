@@ -11,6 +11,11 @@ class Post < ApplicationRecord
     author.update(post_counter: author.posts.count)
   end
 
+  before_destroy :delete_comments
+  def delete_comments
+    comments.destroy_all
+  end
+
   def recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
   end

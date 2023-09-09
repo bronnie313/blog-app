@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @user = User.find(params[:user_id])
     @post = @user.posts.includes(:comments, :likes)
@@ -30,4 +31,15 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    if @post.destroy
+      redirect_to user_posts_path(current_user, @post), notice: 'Post was successfully deleted'
+    else
+      p @post.errors.full_messages
+    end
+  end
 end
+
+

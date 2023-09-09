@@ -21,6 +21,11 @@
                 <%= form.button 'Like', class: 'btn btn-outline-dark btn-sm float-start' %>
                  <% end %>
                 <a href="<%= add_user_comment_path(user_id: @user.id, post_id: @post.id) %>" class="btn btn-outline-dark ms-2 btn-sm">comment</a>
+                <% if can? :destroy, @post %>
+                <%= link_to 'DELETE POST', polymorphic_url([@post.author, @post]), class: 'btn btn-outline-dark ms-2 btn-sm float-start', data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"} %>
+                <% end %>
             </div>
             
 
@@ -29,6 +34,12 @@
         <div class="comments p-2 mt-1 border border-dark">
             <% @comments.each do |comment| %>
                 <h6 class="comment-line"><%= comment.author.name %>: <%= comment.text %><h6>
+                <% if can? :destroy, comment %>
+                <%= link_to 'DELETE COMMENT', delete_user_comment_path(user_id: comment.post.author.id, post_id: comment.post.id, id: comment.id), method: :delete, data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                } %>
+                <% end %>
             <% end %>
         </div>
     <% else %>

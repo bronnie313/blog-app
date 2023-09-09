@@ -12,6 +12,8 @@ gem 'bootstrap', '~> 5.3.1'
 
 gem 'devise'
 
+gem 'cancancan'
+
 gem 'activerecord-nulldb-adapter'
 
 gem 'rails-controller-testing'

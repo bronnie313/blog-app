@@ -1,4 +1,6 @@
 class Api::V1::CommentsController < ApplicationController
+    before_action :set_user_and_post
+  load_and_authorize_resource
     def index
         user = User.find(params[:user_id])
         post = user.posts.find(params[:post_id])

@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  
   def add_comment
     @user = User.find(params[:user_id])
     @post = Post.find(params[:post_id])
@@ -22,16 +21,6 @@ class CommentsController < ApplicationController
 
     else
       render partial: 'forms/comment', locals: { user: @user, post: @post, comment: @comment }
-    end
-  end
-
-  def destroy
-    @post = Post.find(params[:post_id])
-    @comment = current_user.comments.find(params[:id])
-    if @comment.destroy
-      redirect_to user_post_path(current_user, @post), notice: 'Comment was successfully deleted'
-    else
-      p @comment.errors.full_messages
     end
   end
 

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   end
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show', as: 'user'
-  get '/users/:user_id/posts', to: 'posts#index', as: 'user_posts'
+  get 'api/users/:user_id/posts', to: 'posts#index',  defaults: { format: 'json' }
   get '/users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
   get '/users/:user_id/add_post', to: 'posts#add_post', as: 'add_user_post'
   get '/users/:user_id/add_comment', to: 'comments#add_comment', as: 'add_user_comment'
+  get 'api/users/:user_id/posts/:post_id/comments', to: 'comments#index', defaults: { format: 'json' }
   post '/users/:user_id/add_comment', to: 'comments#create'
   resources :posts do
     member do

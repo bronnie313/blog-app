@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @post = @user.posts.includes(:comments, :likes)
+    @posts = @user.posts.includes(:comments, :likes)
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show

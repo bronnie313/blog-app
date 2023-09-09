@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
   before_destroy :delete_comments
   def delete_comments
-    self.comments.destroy_all
+    comments.destroy_all
   end
 
   def recent_comments(limit = 5)

@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       p @comment.errors.full_messages
     end
   end
-  
+
   private
 
   def comment_params
